@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Encontrar raízes de uma polinomial</title>
+    <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+      body {
+        font-family: 'Raleway', sans-serif;
+        margin-left: 700px;
+        margin-right: 700px;
+        margin-top: 5%;
+        background: rgb(93,232,111);
+        background: linear-gradient(90deg, rgba(93,232,111,1) 0%, rgba(0,254,255,1) 56%, rgba(219,219,219,1) 100%);
+      }
+      .info {
+        display: none;
+        position: absolute;
+        top: 5;
+        text-align: center;
+        right: 80%;
+        left: 3%;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        font-size: 16px;
+        line-height: 1.5;
+        z-index: 1;
+      }
+
+      h1 {
+        color: #123142;
+        font-size: 32px;
+        text-align: center;
+        text-decoration: underline;
+      }
+
+      h2 {
+        color: #0a3f90;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      h3 {
+        color: #000000;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      p {
+        color: #333;
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      label {
+        font-family: 'Raleway', sans-serif;
+        color: rgb(0, 0, 0);
+        font-size: 16px;
+        display: block;
+        margin-bottom: 3px;
+        font-weight: bold;
+        margin-left: 5px;
+      }
+
+      input[type="number"],
+      input[type="text"] {
+        font-family: 'Raleway', sans-serif;
+        padding: 8px;
+        font-size: 16px;
+        border: 3px solid rgb(119, 119, 119);
+        border-radius: 50px;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 16px;
+        background-color: #209bd8;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-left: 15px;
+        width: 18%;
+      }
+
+      button:hover {
+        background-color: #264f8b;
+      }
+
+      #resultado {
+        font-family: 'Raleway', sans-serif;
+        padding:10px;
+        font-size: 18px;
+        line-height: 2.0;
+        border-radius: 30px;
+        width: 100%;
+        color: #05a6f1;
+        font-family: 'Fjalla One', sans-serif;
+        background-color: #fff;
+        text-align: center;
+        vertical-align: middle;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      #resultado br {
+        display: block;
+      }
+    </style>
+  </head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <div class="info">
+    <p>Este programa encontra as raízes de uma polinomial de grau N, dada por seus coeficientes. O usuário deve informar o grau da polinomial, o vetor de coeficientes e um valor de precisão ε.</p>
+  </div>
+  <body>
+    <span class="info-icon" onclick="toggleInfo()"><i class="fas fa-info-circle"></i></span>
+    <h1>Encontrar raízes de uma polinomial</h1>
+    <h2>Digite os coeficientes da polinomial, grau e epsilon</h2>
+    <div>
+      <label for="grau">Grau:</label>
+      <p><input type="number" id="grau"><br></p>
+      <label for="epsilon">Epsilon:</label>
+      <p><input type="number" id="epsilon" placeholder="ex: 0,0001"><br></p>
+      <label for="coeficientes">Coeficientes:</label>
+      <p><input type="text" id="coeficientes" placeholder="separe por virgula, ex: 3,-9,0,1"><br></p>
+    </div>
+    <h3>Resultado</h3>
+    <div id="resultado"></div>
+    <p><button onclick="calcular()">Calcular</button></p>
+    <script src="Calculadora.js">
+      function toggleInfo() {
+        var info = document.querySelector('.info');
+        if (info.style.display === 'block') {
+          info.style.display = 'none';
+        } else {
+          info.style.display = 'block';
+        }
+      }
+    </script>
+  </body>
+  
+</html>
