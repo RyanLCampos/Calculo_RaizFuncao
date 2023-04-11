@@ -14,7 +14,7 @@ function calcular() {
 
   let resultado = [];
 
-  function exibirIntervalos(x, arrayNum, aux, aux_x, precisao) {
+  function exibirIntervalos(x, arrayNum, aux, aux_x, epsilon) {
     let raiz = 0;
 
     while (x <= 1000) {
@@ -24,16 +24,15 @@ function calcular() {
         func2 += arrayNum[j] * Math.pow(x, j);
       }
 
-      if (x > -999 && Math.abs(x - aux_x) > precisao) {
+      if (x > -999) {
         if ((aux < 0 && func2 > 0) || (aux > 0 && func2 < 0)) {
-          resultado.push("Intervalo: [" + aux_x + "," + x + "]");
+          resultado.push("Intervalo: [" + Math.round(aux_x) + "," + Math.round(x) + "]");
 
-          let fdivisao = 1;
           let divisao = (aux_x + x) / 2;
+          let fdivisao = f(divisao, arrayNum);
+          let comp = 1;
 
-          while (fdivisao > precisao) {
-            fdivisao = f(divisao, arrayNum);
-
+          while (Math.abs(fdivisao) > epsilon) {
             if (aux * fdivisao < 0) {
               x = divisao;
             } else {
@@ -42,6 +41,7 @@ function calcular() {
             }
 
             divisao = (aux_x + x) / 2;
+            fdivisao = f(divisao, arrayNum);
           }
 
           raiz = divisao;
@@ -77,3 +77,12 @@ function toggleInfo() {
     info.style.display = "block";
   }
 }
+
+document.addEventListener("click", function(event) {
+  const infoBox = document.querySelector(".info");
+  
+
+  if (event.target.closest(".info") === null && event.target.closest(".infoicon") === null) {
+    infoBox.style.display = "none";
+  }
+})

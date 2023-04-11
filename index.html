@@ -1,186 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Encontrar raízes de uma polinomial</title>
-    <style>
-
-    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
-      body {
-        font-family: 'Raleway', sans-serif;
-        margin-left: 500px;
-        margin-right: 500px;
-        margin-top: 5%;
-        background: rgb(93,232,111);
-        background: linear-gradient(90deg, rgba(93,232,111,1) 0%, rgba(0,254,255,1) 56%, rgba(219,219,219,1) 100%);
-        animation: fadein 3s;
-      }
-      .info {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        padding: 100px;
-        background-color: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(10px);
-        border-radius: 10px;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-        font-size: 16px;
-        line-height: 1.5;
-        z-index: 1;
-        backdrop-filter: blur(10px);
-        width: 80%;
-        animation: fadein 0.8s;
-      }
-
-      i:hover {
-        transform: scale(1.3);
-        transition: transform 0.3s ease-in-out;
-        cursor: pointer;
-      }
-
-      .info-cor {
-        color: #0a3f90;
-      }
-
-      .caixa-branca {
-        background-color: #fff;
-        width: 90%;
-        height: 90%;
-        padding: 50px;
-        border-radius: 20px;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-      }
-
-      h1 {
-        color: #123142;
-        font-size: 32px;
-        text-align: center;
-        text-decoration: underline;
-        animation: fadein 3s;
-      }
-
-      h2 {
-        color: #0a3f90;
-        font-size: 20px;
-        text-align: center;
-        margin-top: 20px;
-        animation: fadein 3s;
-      }
-
-      h3 {
-        color: #000000;
-        font-size: 20px;
-        text-align: center;
-        margin-top: 20px;
-        animation: fadein 3s;
-      }
-
-      p {
-        color: #333;
-        font-size: 18px;
-        margin-bottom: 10px;
-        text-align: center;
-      }
-
-      label {
-        font-family: 'Raleway', sans-serif;
-        color: rgb(0, 0, 0);
-        font-size: 16px;
-        display: block;
-        margin-bottom: 3px;
-        font-weight: bold;
-        margin-left: 5px;
-        animation: fadein 3s;
-      }
-
-      input[type="number"],
-      input[type="text"] {
-        font-family: 'Raleway', sans-serif;
-        padding: 8px;
-        font-size: 16px;
-        border: 3px solid rgb(119, 119, 119);
-        border-radius: 50px;
-        width: 100%;
-        margin-bottom: 10px;
-        text-align: center;
-        animation: fadein 3s;
-      }
-
-      button {
-        padding: 10px;
-        margin-top: 50px;
-        font-size: 16px;
-        background-color: #209bd8;
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        width: 20%;     
-      }
-
-      button:hover {
-        background-color: #264f8b;
-      }
-      
-      button:active {
-        animation: scale 0.2s ease-in-out;
-      }
-
-      @keyframes scale {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(0.8);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-  
-      #resultado {
-        font-family: 'Raleway', sans-serif;
-        padding-top: 20px;
-        padding-right: 50px;
-        padding-left: 50px;
-        font-size: 18px;
-        line-height: 2.0;
-        border-radius: 20px;
-        color: #05a6f1;
-        font-family: 'Fjalla One', sans-serif;
-        background-color: #fff;
-        text-align: center;
-        vertical-align: middle;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-        animation: fadein 3s;
-        width: 100%;
-      }
-      
-
-      .caixa-resultado {
-        width: 90%;
-        text-align: center;
-      }
-
-      .resultado-centro{
-        padding-left: 100px;
-      }
-
-      /* Safari and Chrome */
-      @-webkit-keyframes fadein {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      
-    </style>
+    <title>Encontrar zero de funções não-lineares</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <div class="info">
@@ -195,7 +17,7 @@
   <body>
     <div class="caixa-branca">
       <span class="infoicon" onclick="toggleInfo()"><i class="fas fa-info-circle"></i></span>
-      <h1>Encontrar raízes de uma polinomial</h1>
+      <h1>Encontrar zeros de funções não-lineares</h1>
       <h2>Digite os coeficientes da polinomial, grau e épsilon</h2>
       <div>
         <label for="grau">Grau:</label>
@@ -206,16 +28,7 @@
         <p><input type="text" id="coeficientes" placeholder="separe por virgula, ex: 3,-9,0,1"><br></p>
       </div>
       <p><button onclick="calcular()">Calcular</button></p>
-      <script src="Calculadora.js">
-        function toggleInfo() {
-          var info = document.querySelector('.info');
-          if (info.style.display === 'block') {
-            info.style.display = 'none';
-          } else {
-            info.style.display = 'block';
-          }
-        }
-      </script>
+      <script src="Calculadora.js"></script>
     </div>
     <div class="caixa-resultado">
       <h3 class="resultado-centro">Resultado</h3>
